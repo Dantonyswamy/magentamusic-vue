@@ -10,6 +10,8 @@
   "dependencies": {
     "@magenta/music": "^1.11.1",
     "core-js": "^2.6.5",
+    "tonal": "^2.2.2",
+    "tone": "^13.8.25",
     "vue": "^2.6.10",
     "vuetify": "^2.0.0"
   },
