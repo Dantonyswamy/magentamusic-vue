@@ -13,7 +13,7 @@
             </p>
             <div class="text--primary">
               click the play button to hear .<br />
-              "Twinkle Twinkle little star" music
+              notes C4,E4,G4,B4
             </div>
           </v-card-text>
           <v-card-actions>
