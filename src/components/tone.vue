@@ -28,13 +28,24 @@
 </template>
 <script>
 import { synth } from "@/plugins/tone";
+import Tone from "tone";
 export default {
   methods: {
     playtone() {
-      synth.triggerAttackRelease("C4", 0.5, 0);
-      synth.triggerAttackRelease("E4", 0.5, 1);
-      synth.triggerAttackRelease("G4", 0.5, 2);
-      synth.triggerAttackRelease("B4", 0.5, 3);
+      synth.triggerAttackRelease("C4", "4n", "8n");
+      synth.triggerAttackRelease("E4", "8n", Tone.Time("4n") + Tone.Time("8n"));
+      synth.triggerAttackRelease("G4", "16n", "2n");
+      synth.triggerAttackRelease(
+        "B4",
+        "16n",
+        Tone.Time("2n") + Tone.Time("8t")
+      );
+      synth.triggerAttackRelease(
+        "G4",
+        "16",
+        Tone.Time("2n") + Tone.Time("8t") * 2
+      );
+      synth.triggerAttackRelease("E4", "2n", "0:3");
     }
   }
 };
