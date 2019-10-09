@@ -27,25 +27,52 @@
   </v-container>
 </template>
 <script>
-import { synth } from "@/plugins/tone";
 import Tone from "tone";
 export default {
+  data() {
+    return {
+      synth: ""
+    };
+  },
+  created() {
+    this.synth = new Tone.Synth().toMaster();
+    Tone.Transport.bpm.value = 400;
+  },
   methods: {
     playtone() {
-      synth.triggerAttackRelease("C4", "4n", "8n");
-      synth.triggerAttackRelease("E4", "8n", Tone.Time("4n") + Tone.Time("8n"));
-      synth.triggerAttackRelease("G4", "16n", "2n");
-      synth.triggerAttackRelease(
+      this.synth.triggerAttackRelease("C4", "4n", "8n");
+      this.synth.triggerAttackRelease(
+        "E4",
+        "8n",
+        Tone.Time("4n") + Tone.Time("8n")
+      );
+      this.synth.triggerAttackRelease("G4", "16n", "2n");
+      this.synth.triggerAttackRelease(
         "B4",
         "16n",
         Tone.Time("2n") + Tone.Time("8t")
       );
-      synth.triggerAttackRelease(
+      this.synth.triggerAttackRelease(
         "G4",
         "16",
         Tone.Time("2n") + Tone.Time("8t") * 2
       );
-      synth.triggerAttackRelease("E4", "2n", "0:3");
+      this.synth.triggerAttackRelease("E4", "2n", "0:3");
+    },
+
+    simple() {
+      this.synth.triggerAttackRelease("C4", "8n");
+    },
+    melody() {
+      Tone.Transport.schedule(this.synth.triggerAttackRelease("C2", "8n", 0));
+      Tone.Transport.schedule(
+        this.synth.triggerAttackRelease("C2", "8n", "0:2")
+      );
+      Tone.Transport.schedule(
+        this.synth.triggerAttackRelease("C2", "8n", "0:2:2.5")
+      );
+      Tone.Transport.loopEnd = "1m";
+      Tone.Transport.loop = true;
     }
   }
 };
