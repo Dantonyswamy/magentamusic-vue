@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-cols cols="12">
+    <v-col cols="12">
       <v-row align="center" justify="center">
         <v-card class="mx-auto" max-width="400">
           <v-card-text>
@@ -23,21 +23,17 @@
           </v-card-actions>
         </v-card>
       </v-row>
-    </v-cols>
+    </v-col>
   </v-container>
 </template>
 <script>
 //import { player } from "./plugins/magenta"; -- this import statement is not working
 import { core } from "@magenta/music/node/core";
 export default {
-  methods: {
-    play() {
-      const globalAny = global;
-      globalAny.performance = Date;
-      globalAny.fetch = require("node-fetch");
-
-      const player = new core.Player();
-      var TWINKLE_TWINKLE = {
+  data() {
+    return {
+      player: new core.Player(),
+      TWINKLE_TWINKLE: {
         notes: [
           { pitch: 60, startTime: 0.0, endTime: 0.5 },
           { pitch: 60, startTime: 0.5, endTime: 1.0 },
@@ -61,8 +57,19 @@ export default {
           }
         ],
         totalTime: 8
-      };
-      player.start(TWINKLE_TWINKLE);
+      }
+    };
+  },
+  methods: {
+    play() {
+      const globalAny = global;
+      globalAny.performance = Date;
+      globalAny.fetch = require("node-fetch");
+
+      //const player = new core.Player();
+    },
+    twinkle() {
+      this.player.start(this.TWINKLE_TWINKLE);
     }
   }
 };
