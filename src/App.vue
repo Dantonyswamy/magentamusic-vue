@@ -1,18 +1,26 @@
 <template>
   <v-app>
     <v-content>
-      <music />
+      <v-row>
+        <v-col cols="6">
+          <tone1></tone1>
+        </v-col>
+        <v-col cols="6">
+          <twinkle></twinkle>
+        </v-col>
+      </v-row>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import music from "./components/music";
-
+import tone1 from "./components/tone1";
+import twinkle from "./components/twinkle";
 export default {
   name: "App",
   components: {
-    music
+    tone1,
+    twinkle
   },
   data: () => ({
     //
