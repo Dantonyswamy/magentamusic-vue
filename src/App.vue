@@ -1,12 +1,9 @@
 <template>
   <v-app>
     <v-content>
-      <v-row>
-        <v-col cols="6">
-          <tone1></tone1>
-        </v-col>
-        <v-col cols="6">
-          <twinkle></twinkle>
+      <v-row align="center" justify="center">
+        <v-col>
+          <tone2></tone2>
         </v-col>
       </v-row>
     </v-content>
@@ -14,13 +11,13 @@
 </template>
 
 <script>
-import tone1 from "./components/tone1";
-import twinkle from "./components/twinkle";
+//import tone1 from "./components/tone1";
+import tone2 from "./components/tone2";
 export default {
   name: "App",
   components: {
-    tone1,
-    twinkle
+    // tone1,
+    tone2
   },
   data: () => ({
     //

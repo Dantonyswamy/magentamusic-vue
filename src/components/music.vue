@@ -31,9 +31,6 @@ import { player, model } from "@/plugins/magenta";
 export default {
   data() {
     return {
-<<<<<<< HEAD
-      player: new core.Player(),
-=======
       //musical sequence variables to be passed to the model
       sequence: {
         ticksPerQuarter: 220,
@@ -83,7 +80,6 @@ export default {
           { pitch: "G4", startTime: 25.5, endTime: 28.5 }
         ]
       },
->>>>>>> 8e5e00b011594c0dbd665c8373d6d3917945363f
       TWINKLE_TWINKLE: {
         notes: [
           { pitch: 60, startTime: 0.0, endTime: 0.5 },
@@ -113,16 +109,6 @@ export default {
   },
   methods: {
     play() {
-<<<<<<< HEAD
-      const globalAny = global;
-      globalAny.performance = Date;
-      globalAny.fetch = require("node-fetch");
-
-      //const player = new core.Player();
-    },
-    twinkle() {
-      this.player.start(this.TWINKLE_TWINKLE);
-=======
       model
         .initialize()
         .then(() => model.sample(1))
@@ -134,7 +120,6 @@ export default {
     twinkle() {
       player.start(this.TWINKLE_TWINKLE);
       player.stop();
->>>>>>> 8e5e00b011594c0dbd665c8373d6d3917945363f
     }
   }
 };
