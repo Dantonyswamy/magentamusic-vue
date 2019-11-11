@@ -6,7 +6,7 @@
           <v-card-text>
             <div>To•ne•JS web experiment with</div>
             <p class="display-1 text--primary">
-              Sample#2
+              Sample
             </p>
             <p>
               Playing a sequence of notes with different durations
